@@ -11,18 +11,18 @@
 
 word_list = input('Введите слово: ')
 
-points = {1:'AEIOULNSTR',
-      	2:'DG',
-      	3:'BCMP',
-      	4:'FHVWY',
-      	5:'K',
-      	8:'JZ',
-      	10:'QZ',
-        1:'АВЕИНОРСТ',
-      	2:'ДКЛМПУ',
-      	3:'БГЁЬЯ',
-      	4:'ЙЫ',
-      	5:'ЖЗХЦЧ',
-      	8:'ШЭЮ',
-      	10:'ФЩЪ'}
-print(sum([k for i in word_list for k, v in points.items() if i in v]))
+points = {1: 'AEIOULNSTRАВЕИНОРСТ',
+          2: 'DGДКЛМПУ',
+          3: 'BCMPБГЁЬЯ',
+          4: 'FHVWYЙЫ',
+          5: 'KЖЗХЦЧ',
+          8: 'JZШЭЮ',
+          10: 'QZФЩЪ'}
+# print(sum([k for i in word_list for k, v in points.items() if i in v]))
+total = 0
+for letter in word_list:
+    for key, value in points.items():
+        if letter.upper() in value:
+            total += key
+
+print(f'Слово "{word_list}" весит {total} баллов')
